@@ -190,7 +190,7 @@ img {
 }
 
 .menu-link:is(:hover, :focus)::after {
-  transform: scaleY(1);
+  transform: scaleX(1);
   transform-origin: left;
 }
 
