@@ -167,12 +167,15 @@ img {
   padding-bottom: 24px;
 }
 
-.menu-link-current::after {
+.menu-link::after {
   content: '';
+
+  transform: scaleX(0);
+  transform-origin: right;
 
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 
   display: block;
 
@@ -181,6 +184,18 @@ img {
   border-radius: 2px;
 
   background-color: var(--pressed-state-color);
+
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
+}
+
+.menu-link:is(:hover, :focus)::after {
+  transform: scaleY(1);
+  transform-origin: left;
+}
+
+.menu-link-current.menu-link::after {
+  transform: scaleX(1);
 }
 
 .menu-item .menu-link {
